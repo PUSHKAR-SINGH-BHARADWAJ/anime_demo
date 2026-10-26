@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b14">
+  <meta name="description" content="Discover anime, find your next favorite series, and explore character wikis with AniVerse.">
+  <title>AniVerse — Your Anime Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#" aria-label="AniVerse home"><span class="logo-icon">A</span> Animmedation<span class="accent">.</span></a>
+    <nav><a href="#discover">Discover</a><a href="#recommendations">Anime</a><a href="#characters">Character Wiki</a></nav>
+    <a class="nav-cta" href="#discover">Explore Anime ↗</a>
+  </header>
+  <main>
+    <section class="hero" id="discover">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="live-dot"></span> YOUR NEXT ADVENTURE STARTS HERE</span>
+        <h1>Enter your next<br><span class="gradient-text">anime universe.</span></h1>
+        <p>Find your next obsession. Discover hidden gems, explore epic worlds, and get to know the characters you love.</p>
+        <div class="hero-actions"><a href="#recommendations" class="button primary">Discover Anime <span>↗</span></a><a href="#characters" class="button secondary">Explore Characters</a></div>
+        <div class="hero-note"><span>✦</span> Powered by anime data from AniList</div>
+      </div>
+      <div class="hero-art">
+        <div class="art-glow"></div>
+        <img src="images/big3.jpg" alt="The Big Three of anime" class="hero-image" onerror="this.style.display='none'">
+        <div class="floating-tag tag-top">✦ Find your next favorite</div>
+        <div class="floating-tag tag-bottom"><span class="live-dot"></span> A whole world to explore</div>
+      </div>
+    </section>
+    <section class="stats-row">
+      <div><strong>01</strong><span>Find your genre</span></div><div><strong>02</strong><span>Discover new worlds</span></div><div><strong>03</strong><span>Meet your heroes</span></div>
+    </section>
+    <section class="section" id="recommendations">
+      <div class="section-heading"><div><span class="eyebrow">CURATED FOR YOUR MOOD</span><h2>Find your next <span class="accent">favorite.</span></h2><p>Choose a genre, pick a category, and let the adventure begin.</p></div></div>
+      <form id="filter-form" class="filter-panel">
+        <label class="search-box"><span>⌕</span><input id="anime-search" type="search" placeholder="Search anime titles..." autocomplete="off"></label>
+        <label class="filter-field"><span>GENRE</span><select id="genre-filter">
+          <option value="">All genres</option><option value="Action">Action</option><option value="Adventure">Adventure</option><option value="Comedy">Comedy</option><option value="Drama">Drama</option><option value="Fantasy">Fantasy</option><option value="Horror">Horror</option><option value="Mystery">Mystery</option><option value="Romance">Romance</option><option value="Sci-Fi">Sci-Fi</option><option value="Slice of Life">Slice of Life</option><option value="Sports">Sports</option><option value="Supernatural">Supernatural</option><option value="Thriller">Thriller</option><option value="Psychological">Psychological</option>
+        </select></label>
+        <label class="filter-field"><span>CATEGORY</span><select id="type-filter">
+          <option value="">All categories</option><option value="TV">TV Series</option><option value="MOVIE">Movies</option><option value="OVA">OVA</option><option value="ONA">ONA</option><option value="SPECIAL">Specials</option>
+        </select></label>
+        <button class="button primary filter-button" type="submit">Find Anime ↗</button>
+      </form>
+      <div class="results-bar"><div><h3 id="results-title">Popular Anime</h3><p id="results-count">Loading anime recommendations...</p></div><button id="reset-filters" class="text-button" type="button">Reset filters ↺</button></div>
+      <div id="anime-grid" class="anime-grid" aria-live="polite"><div class="loading-state">Loading your next adventure...</div></div>
+      <div class="load-more-wrap"><button id="load-more" class="button secondary" type="button" hidden>Load More Anime ↓</button></div>
+    </section>
+    <section class="character-section" id="characters">
+      <div class="character-copy"><span class="eyebrow">BEYOND THE SCREEN</span><h2>Meet the legends.<br><span class="gradient-text">Know their stories.</span></h2><p>Search for your favorite anime characters and explore their biographies, affiliations, anime appearances, and more.</p>
+        <ul class="feature-list"><li><span>✦</span> Character biographies</li><li><span>✦</span> Anime appearances</li><li><span>✦</span> Background and trivia when available</li></ul>
+      </div>
+      <div class="wiki-panel"><div class="wiki-heading"><span class="wiki-icon">✧</span><div><h3>Character Wiki</h3><p>Who do you want to know more about?</p></div></div>
+        <form id="character-form" class="wiki-search"><input id="character-search" type="search" placeholder="e.g. Naruto Uzumaki" required><button class="button primary" type="submit">Search</button></form>
+        <div id="character-results" class="character-results" aria-live="polite"><div class="wiki-empty"><span>✧</span><p>Your favorite characters are waiting to be discovered.</p></div></div>
+      </div>
+    </section>
+    <section class="bottom-banner"><span class="eyebrow">YOUR WATCHLIST STARTS HERE</span><h2>One world. Endless stories.</h2><p>Your next all-time favorite is just one discovery away.</p><a href="#recommendations" class="button primary">Explore the universe ↗</a></section>
+  </main>
+  <footer><a class="logo" href="#"><span class="logo-icon">A</span> Animmedation<span class="accent">.</span></a><p>Made for anime fans, by anime fans.</p><p class="footer-small">PUSHKAR-SINGH-BHARADWAJ</p></footer>
+  <dialog id="anime-dialog" class="details-dialog"><div id="anime-details"></div><button class="dialog-close" type="button" data-close aria-label="Close details">✕</button></dialog>
+  <dialog id="character-dialog" class="details-dialog"><div id="character-details"></div><button class="dialog-close" type="button" data-close aria-label="Close character wiki">✕</button></dialog>
+</body>
+</html>
